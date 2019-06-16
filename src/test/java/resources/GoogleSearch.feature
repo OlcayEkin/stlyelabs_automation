@@ -5,7 +5,6 @@ Feature: Google Search
   Scenario Outline: Search Countries
     Given I navigate to the https://google.com
     And I search <country>
-    And I wait the result
     Then I check the <country> result is correct
 
     Examples:

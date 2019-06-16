@@ -41,10 +41,13 @@ public class StepDefinition {
     public void iSearchCountry (String country){ searchPage.searchCountry (country);}
 
     @And("I wait the result")
-    public void iWaitTheResult (){ searchPage.waitResult (); }
+    public void iWaitTheResult (){  }
 
     @Then("I check the (.*) result is correct")
-    public void iCheckTheResultIsCorrect (String country){ searchPage.isResultCorrect (country); }
+    public void iCheckTheResultIsCorrect (String country){
+        searchPage.waitResult ();
+        searchPage.isResultCorrect (country);
+    }
 
     @When("I look for a flight accommodation from (.*) to (.*)")
     public void iLookForAFlightAccommodationFromOriginToDestination (String origin, String dest){
