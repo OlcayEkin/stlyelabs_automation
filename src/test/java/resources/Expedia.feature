@@ -1,6 +1,7 @@
 Feature: Expedia
-  Me as a user
-  I look for a flight accomodations
+  As a Expedia user
+  I want to look a flight accomodation
+  So that, I can examine flight option
 
   Scenario: Flight Accomodation
     Given I navigate to the https://www.expedia.com

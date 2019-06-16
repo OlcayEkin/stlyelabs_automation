@@ -1,6 +1,7 @@
 Feature: Google Search
-  Me as a user;
-  I want to search country from the Google
+  As a Google user
+  I want to search some countries
+  So that, I can analyze the details of the country
 
   Scenario Outline: Search Countries
     Given I navigate to the https://google.com
