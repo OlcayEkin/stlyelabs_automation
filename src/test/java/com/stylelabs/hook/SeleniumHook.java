@@ -28,6 +28,10 @@ public class SeleniumHook {
     private static RemoteWebDriver driver;
     private static final Logger log    = LogManager.getLogger (SeleniumHook.class);
 
+    /**
+     * Setting browser with specific parameters
+     * @return
+     */
     private RemoteWebDriver  setUpBrowser (){
         String browser = "chrome";
         switch(browser){
@@ -57,10 +61,19 @@ public class SeleniumHook {
         return driver;
     }
 
+    /**
+     * Getting driver
+     * @return
+     */
     public WebDriver getDriver () {
         return driver;
     }
 
+    /**
+     * Setting driver options
+     * @param driver
+     * @return
+     */
     private static WebDriver setDriver (RemoteWebDriver driver) {
         SeleniumHook.driver = driver;
         driver.manage().timeouts().implicitlyWait (20L, TimeUnit.SECONDS);
@@ -71,11 +84,19 @@ public class SeleniumHook {
 
     }
 
+    /**
+     * Setting wait option
+     * @return
+     */
     public WebDriverWait getWait (){
         WebDriverWait wait = new WebDriverWait(driver,60);
         return wait;
     }
 
+    /**
+     * Setting chrome driver capabilities
+     * @return
+     */
     private ChromeDriver setChromeDriver (){
         ChromeOptions co = new ChromeOptions();
         Map<String, Object> prefs = new HashMap<String, Object> ();
@@ -96,6 +117,10 @@ public class SeleniumHook {
         return new ChromeDriver(co);
     }
 
+    /**
+     * Setting firefox driver capabilities
+     * @return
+     */
     private FirefoxDriver setFirefoxDriver (){
         FirefoxProfile profile = new FirefoxProfile();
         FirefoxOptions firefoxOptions = new FirefoxOptions();
@@ -107,6 +132,10 @@ public class SeleniumHook {
         return new FirefoxDriver(firefoxOptions);
     }
 
+    /**
+     * Setting opera driver capabilities
+     * @return
+     */
     private ChromeDriver setOperaDriver (){
         System.setProperty("webdriver.chrome.driver", "properties/driver/operadriver");
         ChromeOptions options = new ChromeOptions();
@@ -120,6 +149,10 @@ public class SeleniumHook {
         return new ChromeDriver(options);
     }
 
+    /**
+     * Setting mobile browser driver capabilities
+     * @return
+     */
     private ChromeDriver setMobileBrowser (String device){
         Map<String, String> mobileEmulation = new HashMap<String, String>();
         switch(device){
@@ -142,12 +175,17 @@ public class SeleniumHook {
         return new ChromeDriver(chromeOptions);
     }
 
-    //@Before
+    /**
+     * Setting up the browser driver
+     * @return
+     */
     public WebDriver setUpSettings(){
         return setUpBrowser();
     }
 
-    //@After
+    /**
+     * Getting console details and closing the broser
+     */
     public void tearDownTest(){
         try{
             LogEntries logEntries = driver.manage ().logs ().get (LogType.BROWSER);

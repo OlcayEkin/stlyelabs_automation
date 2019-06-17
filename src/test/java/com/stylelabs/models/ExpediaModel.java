@@ -7,6 +7,9 @@ import org.openqa.selenium.support.How;
 import java.util.List;
 
 public class ExpediaModel {
+    /**
+     * ExpediaModel contains element details for the Expedia page
+     */
 
     @FindBy(how = How.ID, using = "flight-origin-hp-flight")
     public WebElement origin;

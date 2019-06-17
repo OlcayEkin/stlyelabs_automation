@@ -20,6 +20,9 @@ public class StepDefinition {
     SearchPage searchPage;
     ExpediaPage expediaPage;
 
+    /**
+     * Setting browser and page elements
+     */
     @Before
     public void setAll(){
         hook = new SeleniumHook ();
@@ -29,26 +32,43 @@ public class StepDefinition {
         expediaPage = new ExpediaPage (driver,wait);
     }
 
+    /**
+     * Getting console logs and closing the browser
+     */
     @After
     public void tearDown(){
         hook.tearDownTest ();
     }
 
+    /**
+     * Navigating specific page
+     * @param url
+     */
     @Given("I navigate to the (.*)")
     public void navigateToSite (String url){ searchPage.navigateTo (url); }
 
+    /**
+     * Searching specific text/country from the Google Search
+     * @param country
+     */
     @And("I search (.*)")
     public void iSearchCountry (String country){ searchPage.searchCountry (country);}
 
-    @And("I wait the result")
-    public void iWaitTheResult (){  }
-
+    /**
+     * Checking if the result is correct
+     * @param country
+     */
     @Then("I check the (.*) result is correct")
     public void iCheckTheResultIsCorrect (String country){
         searchPage.waitResult ();
         searchPage.isResultCorrect (country);
     }
 
+    /**
+     * Setting flight accommodation from the Expedia
+     * @param origin
+     * @param dest
+     */
     @When("I look for a flight accommodation from (.*) to (.*)")
     public void iLookForAFlightAccommodationFromOriginToDestination (String origin, String dest){
         expediaPage.clickFlights ();
@@ -57,6 +77,9 @@ public class StepDefinition {
         expediaPage.setTravelerInfo (1,1);
     }
 
+    /**
+     * Checking result about the flight accommodation
+     */
     @Then("I see travel option as a result")
     public void iSeeTravelOptionAsAResult (){ expediaPage.checkResult ();}
 

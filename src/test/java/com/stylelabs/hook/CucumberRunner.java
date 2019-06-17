@@ -10,8 +10,11 @@ import org.junit.runner.RunWith;
 
         "json:target/site/cucumber-json-report.json"
 
-}, dryRun = false, monochrome = true,
+}, monochrome = true,
         features = "src/test/java/resources ", glue = { "" })
 @RunWith(Cucumber.class)
 public class CucumberRunner {
+    /**
+     * Setting up cucumber options
+     */
 }

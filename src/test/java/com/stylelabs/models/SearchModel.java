@@ -5,6 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class SearchModel {
+    /**
+     * SearchModel contains Google search elements
+     */
 
     @FindBy(how = How.CSS , using = "[type='text']")
     public WebElement searchInput;
