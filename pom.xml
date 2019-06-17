@@ -64,7 +64,14 @@
                 <artifactId>cucumber-java</artifactId>
                 <version>4.2.6</version>
             </dependency>
-        </dependencies>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.6</version>
+            </dependency>
+
+    </dependencies>
 <build>
     <plugins>
         <plugin>
